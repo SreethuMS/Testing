@@ -8,11 +8,26 @@
   // Make sure to update the APPLICATION_API_KEY in the URL in the line below
  <img src="https://stg-cdn.ad1x.com/static/clrpxl.gif?apiKey=25312b55-a3fb-4f41-9e01-c2cd5a04ea8a&eventId=1239388230230571091231" style="display: none" />
 <script>
- 
+ var PERMITTED_DOMAIN = "https://aswathyprasadosv.github.io/";
+/**
+ * Receiving message from other domain
+ */
+window.addEventListener('message', function(event) {
+    if (event.origin === PERMITTED_DOMAIN) {
+        //var msg = JSON.parse(event.data);
+        // var msgKey = Object.keys(msg)[0];
+        if (event.data) {
+            localStorage.setItem("localstorage", event.data);
+        } else {
+            localStorage.removeItem("localstorage");
+        }
+    }
+
+});
  (function(t){
     var e=window,n=document,a="_trnu";if(!e[a]){s.b=[];var r=n.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://stg-edge.ad1x.com/analytics/js/cognition.js?apiKey="+t;var i=n.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i),s.v=3,e[a]=s}function s(){var t=s.b.push(arguments);if(!s.b.shift)return t}
  })("25312b55-a3fb-4f41-9e01-c2cd5a04ea8a");
-  sessionStorage.getItem('ftrnd_ssid');
+  
 </script>
   <title>Sign in Bank Test</title>
 </head>
